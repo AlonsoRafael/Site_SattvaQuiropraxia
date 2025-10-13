@@ -26,6 +26,7 @@ body {
   background-color: var(--color-white);
   color: var(--color-text);
   line-height: 1.6;
+  position: relative;
 }
 
 .container {
@@ -72,10 +73,27 @@ body {
   background-color: var(--color-light-bg);
 }
 .bg-dark {
-  background-color: var(--color-black-matte);
+  background-color: rgb(177, 148, 106);
+  --var(--color-black-matte);
 }
 .text-light {
-  color: var(--color-white);
+  color: var(--color-black-matte);
+}
+
+.bg-beige-stylized {
+  background-color: #f7eedeff; /* Um tom de bege bem claro para não cansar a vista */
+
+  /* A linha abaixo cria um padrão de pontos repetidos */
+  background-image: radial-gradient(
+    rgba(202, 169, 126, 0.25) 1px,
+    transparent 1.5px
+  );
+
+  /* A linha abaixo controla o espaçamento entre os pontos */
+  background-size: 15px 15px;
+
+  border-radius: 10px;
+  margin: 20px 20px;
 }
 
 /* --- CABEÇALHO E NAVEGAÇÃO --- */
@@ -140,14 +158,15 @@ body {
 
 /* --- SEÇÃO HERO --- */
 .hero-section {
-  background: url("https://placeholder.com/1920x1080/f9f9f9/cccccc?text=Imagem+de+Fundo+Calma")
-    no-repeat center center/cover;
+  background: url("imagens/fundo.jpg") no-repeat center center/cover;
   height: 100vh;
   display: flex;
-  align-items: center;
+  --align-items: center;
   justify-content: center;
   text-align: center;
   color: var(--color-black-matte);
+  border-radius: 10px;
+  padding-top: 30vh;
 }
 
 .hero-content {
@@ -162,7 +181,7 @@ body {
 .hero-section h1 {
   font-family: var(--font-primary);
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .hero-section p {
@@ -247,8 +266,8 @@ body {
 /* --- SEÇÃO CONTATO --- */
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
+  gap: 40px;
   background: var(--color-white);
   padding: 40px;
   border-radius: 10px;
@@ -345,6 +364,11 @@ body {
   font-size: 1.8rem;
 }
 
+.whatsapp-flutuante.parar-flutuacao {
+  position: absolute; /* Deixa de ser fixo e passa a rolar com a página */
+  transform: translateY(0); /* Reseta qualquer transformação */
+}
+
 /* --- ANIMAÇÕES DE ROLAGEM --- */
 .fade-in {
   opacity: 0;
@@ -371,6 +395,10 @@ body {
   }
   .hero-section h1 {
     font-size: 2.2rem;
+  }
+
+  .hero-section .hero-content {
+    transform: translateY(-12vh);
   }
 
   .nav-menu {
@@ -418,6 +446,263 @@ body {
   .services-grid,
   .testimonials-grid,
   .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- SEÇÃO DE DÚVIDAS (FAQ) --- */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: 1px solid #ddd;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  font-family: var(--font-primary);
+  color: var(--color-black-matte);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.faq-question i {
+  color: var(--color-beige);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 20px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Estilos para quando o item está ativo (aberto) */
+.faq-item.active .faq-answer {
+  max-height: 200px; /* Um valor alto o suficiente para caber a resposta */
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(45deg); /* Gira o ícone de '+' para um 'x' */
+}
+
+/* --- CARROSSEL DE FOTOS (CONTATO) --- */
+.photo-carousel {
+  position: relative; /* Necessário para posicionar os botões */
+  overflow: hidden; /* Garante que nada saia dos limites */
+}
+
+.photo-carousel h3 {
+  font-family: var(--font-primary);
+  color: var(--color-black-matte);
+  margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+  overflow: hidden; /* Esconde os slides que não estão visíveis */
+  border-radius: 8px;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Animação de transição */
+}
+
+.carousel-item {
+  flex: 1 0 100%; /* Cada item ocupa 100% da largura */
+  box-sizing: border-box;
+}
+
+.carousel-item img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 21 / 9; /* Proporção da imagem */
+  object-fit: cover;
+}
+
+/* Estilo dos botões (Setas) */
+.carousel-button {
+  position: absolute;
+  top: 55%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+/* Estilo dos indicadores (Bolinhas) */
+.carousel-indicators {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.indicator-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator-dot.active {
+  background-color: var(--color-beige);
+}
+
+/* --- ESTILOS DA PÁGINA DE BLOG / INSTAGRAM (VERSÃO TÍTULO VISÍVEL) --- */
+
+.page-title-section {
+  padding: 140px 0 60px 0;
+  background-color: var(--color-light-bg);
+  text-align: center;
+}
+
+.page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.post-card {
+  display: block;
+  position: relative; /* Essencial para posicionar o título sobre a imagem */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1 / 1;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Opcional: Efeito de zoom na imagem ao passar o mouse */
+.post-card:hover img {
+  transform: scale(1.1);
+}
+
+/* NOVO: Estilo para o título que fica sempre visível */
+.post-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 20px 15px 15px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  line-height: 1.3;
+  color: var(--color-white);
+  /* Gradiente para garantir que o texto seja legível em qualquer foto */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* Garante que o título não seja afetado por outros efeitos de transição */
+  transition: none;
+}
+
+/* O overlay agora fica sobre o título no hover */
+.post-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 45, 45, 0.75);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.post-card:hover .post-overlay {
+  opacity: 1;
+}
+
+.post-overlay p {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  margin: 0;
+  padding: 8px 15px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+.post-overlay i {
+  margin-left: 8px;
+  font-size: 1.3rem;
+}
+
+/* --- Ajustes de Responsividade para a Galeria --- */
+
+@media (max-width: 992px) {
+  .instagram-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .instagram-grid {
     grid-template-columns: 1fr;
   }
 }
