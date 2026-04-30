@@ -1,11 +1,24 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    // Cleanup caso o componente seja desmontado
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [menuOpen]);
 
   return (
     <header className="header">
