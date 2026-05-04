@@ -126,6 +126,11 @@ export default function Testimonials() {
   const [trackHeight, setTrackHeight] = useState('auto');
   const trackRef = useRef(null);
 
+  // Touch event states
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const minSwipeDistance = 50;
+
   const updateHeight = () => {
     if (trackRef.current && trackRef.current.children[currentIndex]) {
       const activeSlide = trackRef.current.children[currentIndex];
@@ -162,6 +167,28 @@ export default function Testimonials() {
     setCurrentIndex(index);
   };
 
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   return (
     <section className="section-padded bg-minimal" id="avaliacoes">
       <div className="container fade-in">
@@ -172,7 +199,12 @@ export default function Testimonials() {
             &#10094;
           </button>
 
-          <div className="review-carousel-container">
+          <div 
+            className="review-carousel-container"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             <div
               ref={trackRef}
               className="review-carousel-track"

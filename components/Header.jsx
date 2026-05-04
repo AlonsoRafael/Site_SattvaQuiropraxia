@@ -49,6 +49,11 @@ export default function Header() {
             </a>
           </li>
           <li className="nav-item">
+            <a href="#avaliacoes" className="nav-link" onClick={closeMenu}>
+              Avaliações
+            </a>
+          </li>
+          <li className="nav-item">
             <a href="#contato" className="nav-link" onClick={closeMenu}>
               Nosso Espaço
             </a>

@@ -41,6 +41,11 @@ export default function ResponsiveHeader() {
               Nosso Espaço
             </Link>
           </li>
+          <li className="nav-item">
+            <Link href="/#avaliacoes" className="nav-link" onClick={closeMenu}>
+              Feedbacks
+            </Link>
+          </li>
         </ul>
 
         <a
