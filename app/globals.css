@@ -891,7 +891,7 @@ body.no-scroll {
 .footer {
   background-color: #d3ac6b;
   color: #000;
-  padding: 30px 0;
+  padding: 30px 0 calc(30px + env(safe-area-inset-bottom));
 }
 
 .footer-content {
@@ -1439,7 +1439,7 @@ body.no-scroll {
 .site-footer {
   background-color: #d3ac6b;
   color: var(--color-black-matte);
-  padding: 20px 0;
+  padding: 20px 0 calc(20px + env(safe-area-inset-bottom));
   text-align: center;
   position: relative;
 }
