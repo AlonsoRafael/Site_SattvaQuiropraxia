@@ -40,7 +40,7 @@ export default function Contact() {
           </div>
           <div className="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.902563484117!2d-48.274553!3d-18.9357065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a4451ed1ed31a1%3A0xf3b5e4404e05d45!2sAv.%20Nicomedes%20Alves%20dos%20Santos%2C%201500%20-%20Morada%20da%20Colina%2C%20Uberl%C3%A2ndia%20-%20MG%2C%2038411-106!5e0!3m2!1spt-BR!2sbr!4v1762804568377!5m2!1spt-BR!2sbr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7547.681062842014!2d-48.27697260485207!3d-18.93845143086491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94a445d7e9dda5db%3A0xaac414743f141115!2sSattva%20Sa%C3%BAde%20Integrativa%20-%20Beto%20Goulart!5e0!3m2!1spt-BR!2sbr!4v1777919927522!5m2!1spt-BR!2sbr"
               width="100%"
               height="250"
               style={{ border: 0 }}
