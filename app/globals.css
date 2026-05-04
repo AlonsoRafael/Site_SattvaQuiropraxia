@@ -107,6 +107,10 @@ body.no-scroll {
   margin: 20px 20px;
 }
 
+.bg-minimal {
+  background-color: #faf8f5; /* Um tom "off-white" quente e muito minimalista */
+}
+
 /* --- CABEÇALHO E NAVEGAÇÃO --- */
 .header {
   position: fixed;
@@ -1469,3 +1473,157 @@ body.no-scroll {
   transform: scale(1.2) rotate(5deg);
   color: #b1946a;
 }
+
+/* --- CARROSSEL DEPOIMENTOS GOOGLE --- */
+.review-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-arrow {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-black-matte);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 10px;
+}
+
+.review-arrow:hover {
+  color: var(--color-beige);
+}
+
+.review-carousel-container {
+  overflow: hidden;
+  flex: 1;
+  border-radius: 10px;
+  max-width: 600px; /* Controla a largura do card */
+}
+
+.review-carousel-track {
+  display: flex;
+  align-items: flex-start; /* Impede que slides menores estiquem */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s ease;
+}
+
+.review-slide {
+  min-width: 100%;
+  padding: 10px; /* Dá espaço para o box-shadow não cortar */
+}
+
+/* Estilos do Card do Google */
+.google-review-card {
+  background-color: var(--color-white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  font-family: 'Roboto', Arial, sans-serif;
+  height: max-content;
+}
+
+.google-review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.google-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.google-user-info {
+  display: flex;
+  flex-direction: column;
+  padding-right: 35px; /* Previne sobreposição do nome com o logo do Google em telas pequenas */
+}
+
+.google-user-info h4 {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1rem;
+  color: #202124;
+  margin: 0;
+  font-weight: 500;
+}
+
+.google-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.google-review-stars {
+  color: #fbbc04; /* Amarelo Google */
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.google-review-body p {
+  color: #202124;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  font-style: normal; /* Sobrescreve o italic de antes */
+}
+
+/* Bolinhas */
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.review-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.review-dot.active {
+  background-color: var(--color-dark-beige);
+}
+
+@media (max-width: 600px) {
+  .review-arrow {
+    padding: 5px;
+    font-size: 1.5rem;
+  }
+  .google-review-card {
+    padding: 20px;
+  }
+}
+
+/* Minimalist Divider */
+.minimalist-divider {
+  width: 60%;
+  max-width: 400px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.08);
+  margin: 40px auto;
+  border: none;
+  border-radius: 2px;
+}
+
