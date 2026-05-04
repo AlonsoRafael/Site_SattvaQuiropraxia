@@ -66,7 +66,7 @@ export default function Header() {
         </ul>
 
         <a
-          href="https://wa.me/553498346009"
+          href="https://wa.me/553496416009"
           target="_blank"
           rel="noreferrer"
           className="btn btn-primary nav-btn"

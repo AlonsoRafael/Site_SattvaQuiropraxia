@@ -57,7 +57,7 @@ export default function HomeClient() {
   return (
     <>
       <a
-        href="https://wa.me/553498346009"
+        href="https://wa.me/553496416009"
         className="whatsapp-flutuante"
         target="_blank"
         rel="noreferrer"
