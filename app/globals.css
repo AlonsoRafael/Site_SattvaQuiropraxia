@@ -78,29 +78,32 @@ body.no-scroll {
 .text-center {
   text-align: center;
 }
+
 .bg-light {
   background-color: var(--color-light-bg);
 }
+
 .bg-dark {
   background-color: #d3ac6b;
   color: var(--color-black-matte);
 }
+
 .text-light {
   color: var(--color-black-matte);
 }
 
 .bg-beige-stylized {
-  background-color: #d3ac6b; /* Cor do fundo ajustada conforme solicitado */
+  background-color: #d3ac6b;
+  /* Cor do fundo ajustada conforme solicitado */
 
   /* A linha abaixo cria um padrão de pontos repetidos */
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.3) 1px,
-    transparent 1.5px
-  );
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px,
+      transparent 1.5px);
 
   /* A linha abaixo controla o espaçamento entre os pontos */
   background-size: 15px 15px;
-  margin-top: 48px; /* reduzimos a margem superior do H1 */
+  margin-top: 48px;
+  /* reduzimos a margem superior do H1 */
   margin-bottom: 8px;
   font-weight: 700;
   border-radius: 10px;
@@ -108,7 +111,8 @@ body.no-scroll {
 }
 
 .bg-minimal {
-  background-color: #faf8f5; /* Um tom "off-white" quente e muito minimalista */
+  background-color: #faf8f5;
+  /* Um tom "off-white" quente e muito minimalista */
 }
 
 /* --- CABEÇALHO E NAVEGAÇÃO --- */
@@ -132,7 +136,8 @@ body.no-scroll {
 }
 
 .nav-logo img {
-  height: 50px; /* Ajuste o tamanho da sua logo */
+  height: 50px;
+  /* Ajuste o tamanho da sua logo */
 }
 
 .nav-menu {
@@ -195,14 +200,16 @@ body.no-scroll {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* camada preta semitransparente */
+  background: rgba(0, 0, 0, 0.45);
+  /* camada preta semitransparente */
   z-index: 1;
 }
 
 .hero-content {
   width: 100%;
   position: relative;
-  z-index: 2; /* na frente do overlay */
+  z-index: 2;
+  /* na frente do overlay */
   color: var(--color-white);
   padding: 40px clamp(16px, 4vw, 64px);
   display: grid;
@@ -219,7 +226,8 @@ body.no-scroll {
 
 .hero-section h1 {
   font-family: var(--font-primary);
-  font-size: clamp(2.4rem, 4.5vw, 4.8rem); /* aumentado levemente */
+  font-size: clamp(2.4rem, 4.5vw, 4.8rem);
+  /* aumentado levemente */
   margin-bottom: 0;
   color: var(--color-white);
   line-height: 1.05;
@@ -234,9 +242,11 @@ body.no-scroll {
   display: block;
   width: 100%;
 }
+
 .hero-section h1 .h1-line1 {
   text-align: left;
 }
+
 .hero-section h1 .h1-line2 {
   text-align: center;
   margin-top: 6px;
@@ -280,9 +290,12 @@ body.no-scroll {
   display: inline-block;
   text-align: left;
   color: var(--color-white);
-  font-size: clamp(1rem, 1.6vw, 1.3rem); /* aumente conforme a viewport */
-  max-width: 34ch; /* controla quebras de linha */
-  overflow-wrap: anywhere; /* evita overflow de palavras longas (Surface Duo) */
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  /* aumente conforme a viewport */
+  max-width: 34ch;
+  /* controla quebras de linha */
+  overflow-wrap: anywhere;
+  /* evita overflow de palavras longas (Surface Duo) */
   /* aplica sombra também aos itens da lista */
   text-shadow:
     0 6px 14px rgba(0, 0, 0, 0.55),
@@ -307,8 +320,10 @@ body.no-scroll {
     text-align: center;
     padding: 25px 16px;
     align-items: center;
-    position: relative; /* referencia para posicionamento absoluto */
-    height: 100%; /* ocupa toda a altura do .hero-section */
+    position: relative;
+    /* referencia para posicionamento absoluto */
+    height: 100%;
+    /* ocupa toda a altura do .hero-section */
   }
 
   .hero-section h1 {
@@ -350,14 +365,16 @@ body.no-scroll {
 
 @media (min-width: 481px) and (max-width: 768px) {
   .hero-section {
-    height: 60vh; /* mantido próximo ao desktop/maior telas */
+    height: 60vh;
+    /* mantido próximo ao desktop/maior telas */
     background-position: center center;
   }
 
   .hero-content {
     grid-template-columns: 1.15fr 0.85fr;
     gap: clamp(80px, 8vw, 110px);
-    padding: 24px 24px; /* padding excessivo removido para evitar empurrar o conteúdo fora da imagem */
+    padding: 24px 24px;
+    /* padding excessivo removido para evitar empurrar o conteúdo fora da imagem */
     align-items: center;
     justify-items: stretch;
   }
@@ -387,7 +404,8 @@ body.no-scroll {
     transform: none;
     width: auto;
     margin: 0;
-    padding-right: clamp(8px, 6vw, 48px); /* aproxima do canto direito */
+    padding-right: clamp(8px, 6vw, 48px);
+    /* aproxima do canto direito */
     display: block;
     max-width: 34ch;
     justify-self: end;
@@ -513,7 +531,8 @@ body.no-scroll {
   }
 
   .hero-content {
-    position: relative; /* referência para posicionamento absoluto */
+    position: relative;
+    /* referência para posicionamento absoluto */
     z-index: 2;
     height: 100%;
   }
@@ -530,11 +549,14 @@ body.no-scroll {
 /* Correção para celulares em modo paisagem (deitado) */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-section {
-    min-height: auto; 
+    min-height: auto;
     height: auto;
-    align-items: flex-start; /* Impede que o topo fique escondido sob o header */
-    padding-top: 100px; /* Espaço para o header fixo */
-    padding-bottom: 80px; /* Espaço extra antes das ondas */
+    align-items: flex-start;
+    /* Impede que o topo fique escondido sob o header */
+    padding-top: 100px;
+    /* Espaço para o header fixo */
+    padding-bottom: 80px;
+    /* Espaço extra antes das ondas */
   }
 
   .hero-content {
@@ -571,13 +593,15 @@ body.no-scroll {
 }
 
 .image-content {
-  flex: 0 0 40%; /* imagem ocupa ~40% da largura em telas maiores */
+  flex: 0 0 40%;
+  /* imagem ocupa ~40% da largura em telas maiores */
 }
 
 /* Ajuste para tablets maiores / small laptops (iPad Pro, Surface) --> empurra o texto secundário mais para a direita */
 @media (min-width: 769px) and (max-width: 1366px) {
   .hero-copy-right {
-    padding-right: clamp(48px, 8vw, 160px); /* aproxima do canto direito */
+    padding-right: clamp(48px, 8vw, 160px);
+    /* aproxima do canto direito */
     margin-right: 0;
     justify-self: end;
     text-align: right;
@@ -594,7 +618,8 @@ body.no-scroll {
   .hero-copy-right ul {
     font-size: 1.2rem;
     line-height: 1.5;
-    overflow-wrap: anywhere; /* reforça prevenção de overflow em telas estreitas/duais */
+    overflow-wrap: anywhere;
+    /* reforça prevenção de overflow em telas estreitas/duais */
   }
 
   /* Aumenta ligeiramente o H1 em tablets grandes / small laptops */
@@ -605,13 +630,15 @@ body.no-scroll {
 }
 
 .text-content {
-  flex: 1; /* texto ocupa o restante */
+  flex: 1;
+  /* texto ocupa o restante */
 }
 
 .image-content img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5; /* mantém proporção agradável */
+  aspect-ratio: 4 / 5;
+  /* mantém proporção agradável */
   object-fit: cover;
   border-radius: 10px;
 
@@ -716,7 +743,8 @@ body.no-scroll {
   height: 65vh;
   min-height: 400px;
   max-height: 600px;
-  background: transparent; /* removed inner white background */
+  background: transparent;
+  /* removed inner white background */
 }
 
 .gallery-container img {
@@ -727,8 +755,10 @@ body.no-scroll {
 
 /* Gallery card and controls */
 .gallery-card {
-  background: transparent; /* removed white card background */
-  padding: 0; /* let the image occupy the full card */
+  background: transparent;
+  /* removed white card background */
+  padding: 0;
+  /* let the image occupy the full card */
   border-radius: 10px;
   box-shadow: none;
   width: 100%;
@@ -773,6 +803,7 @@ body.no-scroll {
 .gallery-arrow.left {
   left: 12px;
 }
+
 .gallery-arrow.right {
   right: 12px;
 }
@@ -809,6 +840,7 @@ body.no-scroll {
   .gallery-container {
     height: 320px;
   }
+
   .gallery-card {
     padding: 0;
     max-width: none;
@@ -817,10 +849,12 @@ body.no-scroll {
     margin-right: 0;
     border-radius: 10px;
   }
+
   .gallery-container::before,
   .gallery-container::after {
     display: none;
   }
+
   .gallery-arrow {
     background: rgba(0, 0, 0, 0.22);
   }
@@ -938,7 +972,8 @@ body.no-scroll {
   .social-links a {
     margin-left: 0;
     margin-right: 10px;
-    font-size: 1.6rem; /* slightly larger tappable target */
+    font-size: 1.6rem;
+    /* slightly larger tappable target */
   }
 }
 
@@ -991,6 +1026,7 @@ body.no-scroll {
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 992px) {
+
   .services-grid,
   .testimonials-grid {
     grid-template-columns: 1fr 1fr;
@@ -1011,21 +1047,27 @@ body.no-scroll {
     transition: 0.3s;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
+
   .nav-menu.active {
     left: 0;
   }
+
   .nav-item {
     margin: 16px 0;
   }
+
   .hamburger {
     display: block;
   }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
@@ -1042,14 +1084,14 @@ body.no-scroll {
   .section-title {
     font-size: 2rem;
   }
+
   .hero-section h1 {
     font-size: 2.2rem;
   }
 
   .hero-section .hero-content {
-    transform: translateY(
-      -8vh
-    ); /* sobe um pouco mais o conteúdo no mobile normal */
+    transform: translateY(-8vh);
+    /* sobe um pouco mais o conteúdo no mobile normal */
   }
 
 
@@ -1058,6 +1100,7 @@ body.no-scroll {
     flex-direction: column;
     text-align: center;
   }
+
   .image-content {
     margin-bottom: 30px;
   }
@@ -1074,6 +1117,7 @@ body.no-scroll {
     min-height: 350px;
     max-height: 500px;
   }
+
   .gallery-card {
     padding: 0;
     max-width: none;
@@ -1082,31 +1126,39 @@ body.no-scroll {
     margin-right: 0;
     border-radius: 10px;
   }
+
   .gallery-container::before,
   .gallery-container::after {
     display: none;
   }
+
   .gallery-arrow {
     background: rgba(0, 0, 0, 0.22);
   }
+
   .space-gallery {
     margin-inline: 0;
   }
+
   .gallery-arrow {
     width: 30px;
     height: 30px;
     font-size: 18px;
   }
+
   .gallery-arrow.left {
     left: 8px;
   }
+
   .gallery-arrow.right {
     right: 8px;
   }
+
   .gallery-dot {
     width: 10px;
     height: 10px;
   }
+
   .gallery-caption {
     font-size: 0.9rem;
   }
@@ -1118,27 +1170,33 @@ body.no-scroll {
     min-height: 300px;
     max-height: 400px;
   }
+
   .gallery-card {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
     border-radius: 10px;
   }
+
   .gallery-arrow {
     width: 28px;
     height: 28px;
     font-size: 16px;
   }
+
   .gallery-dot {
     width: 10px;
     height: 10px;
   }
+
   .gallery-caption {
     font-size: 0.85rem;
   }
+
   .section-title {
     font-size: 1.6rem;
   }
+
   .nav-btn {
     padding: 6px 12px;
     font-size: 0.8rem;
@@ -1198,17 +1256,21 @@ body.no-scroll {
 
 /* Estilos para quando o item está ativo (aberto) */
 .faq-item.active .faq-answer {
-  max-height: 200px; /* Um valor alto o suficiente para caber a resposta */
+  max-height: 200px;
+  /* Um valor alto o suficiente para caber a resposta */
 }
 
 .faq-item.active .faq-question i {
-  transform: rotate(45deg); /* Gira o ícone de '+' para um 'x' */
+  transform: rotate(45deg);
+  /* Gira o ícone de '+' para um 'x' */
 }
 
 /* --- CARROSSEL DE FOTOS (CONTATO) --- */
 .photo-carousel {
-  position: relative; /* Necessário para posicionar os botões */
-  overflow: hidden; /* Garante que nada saia dos limites */
+  position: relative;
+  /* Necessário para posicionar os botões */
+  overflow: hidden;
+  /* Garante que nada saia dos limites */
 }
 
 .photo-carousel h3 {
@@ -1218,31 +1280,36 @@ body.no-scroll {
 }
 
 .carousel-wrapper {
-  overflow: hidden; /* Esconde os slides que não estão visíveis */
+  overflow: hidden;
+  /* Esconde os slides que não estão visíveis */
   border-radius: 8px;
 }
 
 .carousel-container {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* Animação de transição */
+  transition: transform 0.5s ease-in-out;
+  /* Animação de transição */
 }
 
 .carousel-item {
-  flex: 1 0 100%; /* Cada item ocupa 100% da largura */
+  flex: 1 0 100%;
+  /* Cada item ocupa 100% da largura */
   box-sizing: border-box;
 }
 
 .carousel-item img {
   width: 100%;
   display: block;
-  aspect-ratio: 21 / 9; /* Proporção da imagem */
+  aspect-ratio: 21 / 9;
+  /* Proporção da imagem */
   object-fit: cover;
 }
 
 /* Estilo dos botões (Setas) */
 .carousel-button {
   position: absolute;
-  top: 55%; /* Centraliza verticalmente */
+  top: 55%;
+  /* Centraliza verticalmente */
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -1257,7 +1324,8 @@ body.no-scroll {
   width: 100%;
   line-height: 0;
   margin-top: 0;
-  z-index: 3; /* acima do overlay da hero-section */
+  z-index: 3;
+  /* acima do overlay da hero-section */
 }
 
 .hero-wave-divider svg {
@@ -1269,12 +1337,14 @@ body.no-scroll {
 
 @media (max-width: 768px) {
   .hero-wave-divider svg {
-    height: 40px; /* Deixa as ondas mais suaves no celular */
+    height: 40px;
+    /* Deixa as ondas mais suaves no celular */
   }
 }
 
 .hero-wave-divider path {
-  fill: #ffffff !important; /* força branco sólido */
+  fill: #ffffff !important;
+  /* força branco sólido */
 }
 
 .carousel-button:hover {
@@ -1335,7 +1405,8 @@ body.no-scroll {
 
 .post-card {
   display: block;
-  position: relative; /* Essencial para posicionar o título sobre a imagem */
+  position: relative;
+  /* Essencial para posicionar o título sobre a imagem */
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -1375,11 +1446,9 @@ body.no-scroll {
   line-height: 1.3;
   color: var(--color-white);
   /* Gradiente para garantir que o texto seja legível em qualquer foto */
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0) 100%);
   /* Garante que o título não seja afetado por outros efeitos de transição */
   transition: none;
 }
@@ -1503,18 +1572,21 @@ body.no-scroll {
   overflow: hidden;
   flex: 1;
   border-radius: 10px;
-  max-width: 600px; /* Controla a largura do card */
+  max-width: 600px;
+  /* Controla a largura do card */
 }
 
 .review-carousel-track {
   display: flex;
-  align-items: flex-start; /* Impede que slides menores estiquem */
+  align-items: flex-start;
+  /* Impede que slides menores estiquem */
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), height 0.4s ease;
 }
 
 .review-slide {
   min-width: 100%;
-  padding: 10px; /* Dá espaço para o box-shadow não cortar */
+  padding: 10px;
+  /* Dá espaço para o box-shadow não cortar */
 }
 
 /* Estilos do Card do Google */
@@ -1551,7 +1623,8 @@ body.no-scroll {
 .google-user-info {
   display: flex;
   flex-direction: column;
-  padding-right: 35px; /* Previne sobreposição do nome com o logo do Google em telas pequenas */
+  padding-right: 35px;
+  /* Previne sobreposição do nome com o logo do Google em telas pequenas */
 }
 
 .google-user-info h4 {
@@ -1569,7 +1642,8 @@ body.no-scroll {
 }
 
 .google-review-stars {
-  color: #fbbc04; /* Amarelo Google */
+  color: #fbbc04;
+  /* Amarelo Google */
   font-size: 1.2rem;
   margin-bottom: 15px;
   letter-spacing: 2px;
@@ -1580,7 +1654,8 @@ body.no-scroll {
   font-size: 0.95rem;
   line-height: 1.5;
   margin: 0;
-  font-style: normal; /* Sobrescreve o italic de antes */
+  font-style: normal;
+  /* Sobrescreve o italic de antes */
 }
 
 /* Bolinhas */
@@ -1611,6 +1686,7 @@ body.no-scroll {
     padding: 5px;
     font-size: 1.5rem;
   }
+
   .google-review-card {
     padding: 20px;
   }
@@ -1626,4 +1702,3 @@ body.no-scroll {
   border: none;
   border-radius: 2px;
 }
-

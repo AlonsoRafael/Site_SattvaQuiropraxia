@@ -30,6 +30,15 @@ const reviews = [
     image: "/imagens/google/ana_marcia.png",
   },
   {
+    name: "Dr Uilter Goulart",
+    initial: "D",
+    color: "#9c27b0",
+    date: "recentemente",
+    text: "É impossível não reconhecer e celebrar o trabalho do profissional Beto Goulart, da Sattva Saúde Integrativa. Seu atendimento é marcado por acolhimento, humanidade e excelência, conquistando não apenas a confiança, mas também o carinho de todos que têm o privilégio de serem cuidados por ele.\n\nBeto é um profissional que vai além da técnica: ele transmite serenidade, escuta com atenção e trata cada paciente como único. Sua dedicação é tão especial que se estende à minha família inteira, sempre com carinho, respeito e profissionalismo.\n\nNão posso deixar de destacar o novo espaço onde ele atende: um ambiente encantador, lindo, calmo e maravilhoso, que reflete sua essência e torna cada consulta uma experiência transformadora.\n\nEssa homenagem é um reconhecimento sincero ao valor de um profissional que une ciência e humanidade, técnica e coração, e que inspira confiança e gratidão em todos que cruzam seu caminho.",
+    stars: 5,
+    image: "/imagens/google/uilter.png",
+  },
+  {
     name: "Isabella Borges",
     initial: "I",
     color: "#8d6e63",
@@ -124,6 +133,7 @@ const reviews = [
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [trackHeight, setTrackHeight] = useState('auto');
+  const [expandedReviews, setExpandedReviews] = useState({});
   const trackRef = useRef(null);
 
   // Touch event states
@@ -256,7 +266,50 @@ export default function Testimonials() {
                     </div>
 
                     <div className="google-review-body">
-                      <p style={{ whiteSpace: 'pre-wrap' }}>{review.text}</p>
+                      {(() => {
+                        const isExpanded = expandedReviews[index];
+                        const maxLength = 260;
+                        const text = review.text;
+                        
+                        // Dá uma tolerância de 50 caracteres para evitar o "Ver mais" para uma ou duas palavras
+                        const shouldTruncate = text.length > maxLength + 50;
+                        
+                        // Corta no último espaço antes do limite para não quebrar palavras no meio
+                        const truncatedText = shouldTruncate 
+                          ? text.slice(0, text.lastIndexOf(' ', maxLength)) + '...'
+                          : text;
+
+                        return (
+                          <>
+                            <p style={{ whiteSpace: 'pre-wrap', margin: 0 }}>
+                              {shouldTruncate && !isExpanded
+                                ? truncatedText
+                                : text}
+                            </p>
+                            {shouldTruncate && (
+                              <button 
+                                onClick={() => {
+                                  setExpandedReviews(prev => ({ ...prev, [index]: !prev[index] }));
+                                  setTimeout(updateHeight, 50);
+                                }}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  color: '#555',
+                                  cursor: 'pointer',
+                                  padding: 0,
+                                  marginTop: '8px',
+                                  fontSize: '0.9rem',
+                                  fontWeight: 'bold',
+                                  textDecoration: 'underline'
+                                }}
+                              >
+                                {isExpanded ? 'Ver menos' : 'Ver mais'}
+                              </button>
+                            )}
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>
