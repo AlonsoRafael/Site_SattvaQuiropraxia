@@ -1,23 +1,23 @@
 import HomeClient from '../components/HomeClient';
 
 export const metadata = {
-  title: 'Sattva Saúde Integrativa - Alinhando sua saúde com equilíbrio',
+  title: 'Quiropraxia e Alívio da Dor em Uberlândia | Sattva Saúde Integrativa',
   description:
-    'Av. Nicomedes Alves dos Santos, 1500 - Morada da Colina, Uberlândia/MG. Ajudo pessoas com dores e inflamações a recuperarem a qualidade de vida com quiropraxia, agulhamento distal e técnicas integrativas eficazes, rápidas e seguras.',
+    'Especialista em alívio da dor na coluna, nervo ciático e inflamações com Quiropraxia, Acupuntura Distal e Magnetoterapia em Uberlândia/MG. Agende sua consulta com Beto Goulart!',
   alternates: {
-    canonical: '/'
+    canonical: 'https://www.sattvaquiropraxia.site/'
   },
   openGraph: {
-    title: 'Sattva Saúde Integrativa - Alinhando sua saúde com equilíbrio',
+    title: 'Quiropraxia e Alívio da Dor em Uberlândia | Sattva Saúde Integrativa',
     description:
-      'Av. Nicomedes Alves dos Santos, 1500 - Morada da Colina, Uberlândia/MG. Ajudo pessoas com dores e inflamações a recuperarem a qualidade de vida com quiropraxia, agulhamento distal e técnicas integrativas eficazes.',
-    url: '/',
+      'Recupere sua mobilidade e viva sem dor. Quiropraxia, Acupuntura Distal e Magnetoterapia eficazes e seguras em Uberlândia com Beto Goulart. Agende agora!',
+    url: 'https://www.sattvaquiropraxia.site/',
     images: ['/imagens/logo.png']
   },
   twitter: {
-    title: 'Sattva Saúde Integrativa - Alinhando sua saúde com equilíbrio',
+    title: 'Quiropraxia e Alívio da Dor em Uberlândia | Sattva Saúde Integrativa',
     description:
-      'Av. Nicomedes Alves dos Santos, 1500 - Morada da Colina, Uberlândia/MG. Ajudo pessoas com dores e inflamações a recuperarem a qualidade de vida com quiropraxia, agulhamento distal e técnicas integrativas eficazes.',
+      'Recupere sua mobilidade e viva sem dor. Quiropraxia, Acupuntura Distal e Magnetoterapia eficazes e seguras em Uberlândia com Beto Goulart.',
     images: ['/imagens/logo.png']
   }
 };

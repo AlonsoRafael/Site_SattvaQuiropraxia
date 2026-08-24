@@ -3,7 +3,14 @@ export default function About() {
     <section className="section-padded" id="sobre">
       <div className="container content-section fade-in">
         <div className="image-content">
-          <img src="/imagens/beto.png" alt="Foto do Profissional" />
+          <img
+            src="/imagens/beto.png"
+            alt="Foto do Profissional Beto Goulart"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="750"
+          />
         </div>
         <div className="text-content" style={{ fontSize: '18px', lineHeight: 1.6 }}>
           <p>

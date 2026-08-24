@@ -199,13 +199,31 @@ export default function Testimonials() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+    }
+  };
+
   return (
     <section className="section-padded bg-minimal" id="avaliacoes">
       <div className="container fade-in">
         <h2 className="section-title text-center">O que meus pacientes dizem?</h2>
 
-        <div className="review-carousel-wrapper">
-          <button className="review-arrow left" onClick={prevSlide} aria-label="Avaliação Anterior">
+        <div
+          className="review-carousel-wrapper"
+          onKeyDown={handleKeyDown}
+          tabIndex={0}
+          aria-label="Carrossel de depoimentos de pacientes"
+        >
+          <button
+            type="button"
+            className="review-arrow left"
+            onClick={prevSlide}
+            aria-label="Avaliação Anterior"
+          >
             &#10094;
           </button>
 
@@ -232,6 +250,10 @@ export default function Testimonials() {
                           <img
                             src={review.image}
                             alt={`Foto de ${review.name}`}
+                            loading="lazy"
+                            decoding="async"
+                            width="40"
+                            height="40"
                             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}
                           />
                         ) : (
@@ -288,6 +310,7 @@ export default function Testimonials() {
                             </p>
                             {shouldTruncate && (
                               <button 
+                                type="button"
                                 onClick={() => {
                                   setExpandedReviews(prev => ({ ...prev, [index]: !prev[index] }));
                                   setTimeout(updateHeight, 50);
@@ -333,16 +356,24 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <button className="review-arrow right" onClick={nextSlide} aria-label="Próxima Avaliação">
+          <button
+            type="button"
+            className="review-arrow right"
+            onClick={nextSlide}
+            aria-label="Próxima Avaliação"
+          >
             &#10095;
           </button>
         </div>
 
         {/* Bolinhas de Navegação */}
-        <div className="review-dots" style={{ flexWrap: 'wrap' }}>
+        <div className="review-dots" style={{ flexWrap: 'wrap' }} role="tablist" aria-label="Navegação dos depoimentos">
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button
+              type="button"
               key={index}
+              role="tab"
+              aria-selected={currentIndex === index}
               className={`review-dot ${currentIndex === index ? 'active' : ''}`}
               onClick={() => goToSlide(index)}
               aria-label={`Ir para avaliação ${index + 1}`}

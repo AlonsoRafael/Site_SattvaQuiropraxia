@@ -10,7 +10,7 @@ import FAQ from './FAQ';
 import Contact from './Contact';
 import Footer from './Footer';
 import Testimonials from './Testimonials';
-import { services, faqs, gallery } from '../data/siteData';
+import { services, faqs } from '../data/siteData';
 
 export default function HomeClient() {
   const [footerVisible, setFooterVisible] = useState(false);
