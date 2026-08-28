@@ -18,7 +18,7 @@ const reviews = [
     date: "2 meses atrás",
     text: "Nunca fui tão bem atendido por um profissional da saúde deste calibre. Recomendo fortemente àqueles de sensibilidade aguçada e que saiba contribuir pelo seu próprio bem e auxílio deste profissional.",
     stars: 5,
-    image: "/imagens/google/amadeu.png",
+    image: "/imagens/google/amadeu.webp",
   },
   {
     name: "Ana Márcia Almeida",
@@ -27,7 +27,7 @@ const reviews = [
     date: "2 meses atrás",
     text: "Atendimento humanizado, profissional extremamente ético e competente. Recomendo!",
     stars: 5,
-    image: "/imagens/google/ana_marcia.png",
+    image: "/imagens/google/ana_marcia.webp",
   },
   {
     name: "Dr Uilter Goulart",
@@ -36,7 +36,7 @@ const reviews = [
     date: "recentemente",
     text: "É impossível não reconhecer e celebrar o trabalho do profissional Beto Goulart, da Sattva Saúde Integrativa. Seu atendimento é marcado por acolhimento, humanidade e excelência, conquistando não apenas a confiança, mas também o carinho de todos que têm o privilégio de serem cuidados por ele.\n\nBeto é um profissional que vai além da técnica: ele transmite serenidade, escuta com atenção e trata cada paciente como único. Sua dedicação é tão especial que se estende à minha família inteira, sempre com carinho, respeito e profissionalismo.\n\nNão posso deixar de destacar o novo espaço onde ele atende: um ambiente encantador, lindo, calmo e maravilhoso, que reflete sua essência e torna cada consulta uma experiência transformadora.\n\nEssa homenagem é um reconhecimento sincero ao valor de um profissional que une ciência e humanidade, técnica e coração, e que inspira confiança e gratidão em todos que cruzam seu caminho.",
     stars: 5,
-    image: "/imagens/google/uilter.png",
+    image: "/imagens/google/uilter.webp",
   },
   {
     name: "Isabella Borges",
@@ -53,7 +53,7 @@ const reviews = [
     date: "3 meses atrás",
     text: "Beto é um profissional primoroso, competente, com foco total na saúde do paciente. Estudioso, conectado com o Ser Supremo, vê além do físico e cuida de forma integral. Sempre entrega o melhor de si. Você sai restaurado de seu atendimento. Gratidão, Beto.",
     stars: 5,
-    image: "/imagens/google/leia.png",
+    image: "/imagens/google/leia.webp",
   },
   {
     name: "Losi Sousa de Figueiredo",
@@ -70,7 +70,7 @@ const reviews = [
     date: "4 meses atrás",
     text: "Existe um lugar de socorro para o corpo e pra alma. O Beto é um curador de coração aberto para o bem. Amo ser atendida por ele neste espaço.",
     stars: 5,
-    image: "/imagens/google/marcia.png",
+    image: "/imagens/google/marcia.webp",
   },
   {
     name: "Patricia Azevedo Mendes",

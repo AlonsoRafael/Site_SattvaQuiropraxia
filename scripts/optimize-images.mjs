@@ -1,0 +1,98 @@
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+
+const imagensDir = path.resolve('public/imagens');
+const googleDir = path.join(imagensDir, 'google');
+
+async function processImages() {
+  console.log('--- Otimizando Imagens com Sharp ---');
+
+  // 1. ft_principal.png -> ft_principal.webp (Hero LCP)
+  const heroSrc = path.join(imagensDir, 'ft_principal.png');
+  const heroDest = path.join(imagensDir, 'ft_principal.webp');
+  if (fs.existsSync(heroSrc)) {
+    await sharp(heroSrc)
+      .resize({ width: 1400, withoutEnlargement: true })
+      .webp({ quality: 80, effort: 6 })
+      .toFile(heroDest);
+    const oldSize = fs.statSync(heroSrc).size;
+    const newSize = fs.statSync(heroDest).size;
+    console.log(`ft_principal: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
+  }
+
+  // 2. beto.png -> beto.webp
+  const betoSrc = path.join(imagensDir, 'beto.png');
+  const betoDest = path.join(imagensDir, 'beto.webp');
+  if (fs.existsSync(betoSrc)) {
+    await sharp(betoSrc)
+      .resize({ width: 800, withoutEnlargement: true })
+      .webp({ quality: 82, effort: 6 })
+      .toFile(betoDest);
+    const oldSize = fs.statSync(betoSrc).size;
+    const newSize = fs.statSync(betoDest).size;
+    console.log(`beto: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
+  }
+
+  // 3. logo.png -> logo.webp
+  const logoSrc = path.join(imagensDir, 'logo.png');
+  const logoDest = path.join(imagensDir, 'logo.webp');
+  if (fs.existsSync(logoSrc)) {
+    await sharp(logoSrc)
+      .resize({ width: 300, withoutEnlargement: true })
+      .webp({ quality: 90, effort: 6 })
+      .toFile(logoDest);
+    const oldSize = fs.statSync(logoSrc).size;
+    const newSize = fs.statSync(logoDest).size;
+    console.log(`logo: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
+  }
+
+  // 4. Galeria e ícones de serviços
+  const standardImages = [
+    { name: 'portaClinica.jpg', maxW: 1000, quality: 80 },
+    { name: 'sala1.jpg', maxW: 1000, quality: 80 },
+    { name: 'sala2.jpg', maxW: 1000, quality: 80 },
+    { name: 'sala3.jpg', maxW: 1000, quality: 80 },
+    { name: 'ajuste.png', maxW: 128, quality: 85 },
+    { name: 'alivio.png', maxW: 128, quality: 85 },
+    { name: 'correcao.png', maxW: 128, quality: 85 },
+    { name: 'logo1.png', maxW: 300, quality: 90 }
+  ];
+
+  for (const item of standardImages) {
+    const src = path.join(imagensDir, item.name);
+    const destName = item.name.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+    const dest = path.join(imagensDir, destName);
+    if (fs.existsSync(src)) {
+      await sharp(src)
+        .resize({ width: item.maxW, withoutEnlargement: true })
+        .webp({ quality: item.quality, effort: 6 })
+        .toFile(dest);
+      const oldSize = fs.statSync(src).size;
+      const newSize = fs.statSync(dest).size;
+      console.log(`${item.name}: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
+    }
+  }
+
+  // 5. Imagens do Google Reviews
+  if (fs.existsSync(googleDir)) {
+    const files = fs.readdirSync(googleDir);
+    for (const file of files) {
+      if (file.endsWith('.png') || file.endsWith('.jpg')) {
+        const src = path.join(googleDir, file);
+        const dest = path.join(googleDir, file.replace(/\.(png|jpg|jpeg)$/i, '.webp'));
+        await sharp(src)
+          .resize({ width: 80, height: 80, fit: 'cover' })
+          .webp({ quality: 80, effort: 6 })
+          .toFile(dest);
+        const oldSize = fs.statSync(src).size;
+        const newSize = fs.statSync(dest).size;
+        console.log(`google/${file}: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB`);
+      }
+    }
+  }
+
+  console.log('--- Otimização de Imagens Concluída com Sucesso! ---');
+}
+
+processImages().catch(console.error);

@@ -4,7 +4,7 @@ export default function About() {
       <div className="container content-section fade-in">
         <div className="image-content">
           <img
-            src="/imagens/beto.png"
+            src="/imagens/beto.webp"
             alt="Foto do Profissional Beto Goulart"
             loading="lazy"
             decoding="async"

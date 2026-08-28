@@ -1,5 +1,6 @@
 import Gallery from './Gallery';
 import { gallery } from '../data/siteData';
+import { LocationDotIcon, WhatsAppIcon, PhoneIcon, EnvelopeIcon, InstagramIcon } from './Icons';
 
 export default function Contact() {
   return (
@@ -10,7 +11,7 @@ export default function Contact() {
           <div className="contact-info">
             <h3>Informações de Contato</h3>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
-              <i className="fa-solid fa-location-dot" style={{ marginTop: '5px', minWidth: '16px', textAlign: 'center' }} />
+              <LocationDotIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} />
               <div>
                 DERMAC CLÍNICA - Av. Nicomedes Alves dos Santos, 1500 - Morada da
                 Colina (Espaço Fabiana Garcia, PÁTIO DERMAC), Uberlândia-MG,
@@ -18,7 +19,7 @@ export default function Contact() {
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
-              <i className="fa-brands fa-whatsapp" style={{ marginTop: '5px', minWidth: '16px', textAlign: 'center', color: '#25D366' }} />
+              <WhatsAppIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} color="#25D366" />
               <div>
                 <a
                   href="https://wa.me/553496416009?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20sobre%20os%20atendimentos."
@@ -31,7 +32,7 @@ export default function Contact() {
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
-              <i className="fa-solid fa-phone" style={{ marginTop: '5px', minWidth: '16px', textAlign: 'center' }} />
+              <PhoneIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} />
               <div>
                 <a
                   href="https://wa.me/553496416009?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20sobre%20os%20atendimentos."
@@ -44,13 +45,13 @@ export default function Contact() {
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
-              <i className="fa-solid fa-envelope" style={{ marginTop: '5px', minWidth: '16px', textAlign: 'center' }} />
+              <EnvelopeIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} />
               <div>
                 quirobetogoulart@gmail.com
               </div>
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
-              <i className="fa-brands fa-instagram" style={{ marginTop: '5px', minWidth: '16px', textAlign: 'center' }} />
+              <InstagramIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} />
               <div>
                 <a href="https://www.instagram.com/quiro.betogoulart/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
                   @quiro.betogoulart
@@ -80,3 +81,4 @@ export default function Contact() {
     </section>
   );
 }
+

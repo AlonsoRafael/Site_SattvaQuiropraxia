@@ -183,7 +183,7 @@ body.no-scroll {
 /* --- SEÇÃO HERO --- */
 .hero-section {
   position: relative;
-  background: url("/imagens/ft_principal.png") no-repeat center center;
+  background: url("/imagens/ft_principal.webp") no-repeat center center;
   background-size: cover;
   background-attachment: scroll;
   min-height: 80vh;

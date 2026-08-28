@@ -11,6 +11,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Testimonials from './Testimonials';
 import { services, faqs } from '../data/siteData';
+import { WhatsAppIcon } from './Icons';
 
 export default function HomeClient() {
   const [footerVisible, setFooterVisible] = useState(false);
@@ -64,7 +65,7 @@ export default function HomeClient() {
         aria-label="Agende agora pelo WhatsApp"
         style={{ bottom: footerVisible ? `${footerOffset}px` : '20px' }}
       >
-        <i className="fa-brands fa-whatsapp" aria-hidden="true" />
+        <WhatsAppIcon size={28} aria-hidden={true} />
         <span className="whatsapp-flutuante-texto">Agende Agora</span>
       </a>
 

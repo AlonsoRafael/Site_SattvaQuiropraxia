@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { PlusIcon } from './Icons';
 
 export default function FAQ({ faqs }) {
   const [activeFaq, setActiveFaq] = useState(0);
@@ -34,7 +35,7 @@ export default function FAQ({ faqs }) {
                     onClick={() => toggleFaq(index)}
                   >
                     <span className="faq-question-text">{faq.question}</span>
-                    <i className="fa-solid fa-plus" aria-hidden="true" />
+                    <PlusIcon aria-hidden={true} />
                   </button>
                 </h3>
                 <div

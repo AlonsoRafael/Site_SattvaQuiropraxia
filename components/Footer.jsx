@@ -1,4 +1,5 @@
 import React from 'react';
+import { InstagramIcon } from './Icons';
 
 const Footer = React.forwardRef(function Footer(_, ref) {
   return (
@@ -13,7 +14,7 @@ const Footer = React.forwardRef(function Footer(_, ref) {
             className="instagram-icon"
             aria-label="Instagram"
           >
-            <i className="fa-brands fa-instagram"></i>
+            <InstagramIcon size={20} />
           </a>
         </div>
       </div>
@@ -22,3 +23,4 @@ const Footer = React.forwardRef(function Footer(_, ref) {
 });
 
 export default Footer;
+

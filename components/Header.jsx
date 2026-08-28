@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { WhatsAppIcon } from './Icons';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function Header() {
       <nav className="navbar container" aria-label="Navegação principal">
         <a href="#inicio" className="nav-logo" onClick={closeMenu} aria-label="Ir para o início">
           <img
-            src="/imagens/logo.png"
+            src="/imagens/logo.webp"
             alt="Logo Sattva Saúde Integrativa"
             width="150"
             height="50"
@@ -76,7 +77,7 @@ export default function Header() {
           className="btn btn-primary nav-btn"
           aria-label="Agendar Consulta pelo WhatsApp"
         >
-          <i className="fa-brands fa-whatsapp" aria-hidden="true" /> Agendar Consulta
+          <WhatsAppIcon size={18} style={{ marginRight: '6px' }} /> Agendar Consulta
         </a>
 
         <button

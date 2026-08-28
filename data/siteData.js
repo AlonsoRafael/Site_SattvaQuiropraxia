@@ -1,20 +1,20 @@
 export const services = [
   {
-    icon: '/imagens/ajuste.png',
+    icon: '/imagens/ajuste.webp',
     alt: 'Ajustes Corporais',
     title: 'Ajustes Corporais',
     description:
       'Correção de subluxações articulares e ajustes do sistema neuro-músculo-esquelético para restaurar a harmonia e o bem-estar proporcionando alívio de dores e limitações.'
   },
   {
-    icon: '/imagens/correcao.png',
+    icon: '/imagens/correcao.webp',
     alt: 'Correção Postural',
     title: 'Correção Postural',
     description:
       'Tratamentos focados na redução e eliminação de dores e inflamações, no reconhecimento das causas de desarmonias, no fortalecimento do corpo e da mente para se retomar uma postura natural e confiante, e uma vida harmoniosa e saudável.'
   },
   {
-    icon: '/imagens/alivio.png',
+    icon: '/imagens/alivio.webp',
     alt: 'Alívio de Dores',
     title: 'Alívio de Dores',
     description:
@@ -116,8 +116,8 @@ export const faqs = [
 ];
 
 export const gallery = [
-  { src: '/imagens/portaClinica.jpg', alt: 'Porta da Clínica', objectPosition: 'center bottom' },
-  { src: '/imagens/sala1.jpg', alt: 'Sala de atendimento 1' },
-  { src: '/imagens/sala2.jpg', alt: 'Sala de atendimento 2' },
-  { src: '/imagens/sala3.jpg', alt: 'Sala de atendimento 3' }
+  { src: '/imagens/portaClinica.webp', alt: 'Porta da Clínica', objectPosition: 'center bottom' },
+  { src: '/imagens/sala1.webp', alt: 'Sala de atendimento 1' },
+  { src: '/imagens/sala2.webp', alt: 'Sala de atendimento 2' },
+  { src: '/imagens/sala3.webp', alt: 'Sala de atendimento 3' }
 ];
