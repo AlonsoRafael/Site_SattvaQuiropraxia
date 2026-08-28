@@ -34,12 +34,12 @@ async function processImages() {
     console.log(`beto: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
   }
 
-  // 3. logo.png -> logo.webp (dimensão perfeita para navbar 150px)
+  // 3. logo.png -> logo.webp (dimensão ideal para 88px navbar)
   const logoSrc = path.join(imagensDir, 'logo.png');
   const logoDest = path.join(imagensDir, 'logo.webp');
   if (fs.existsSync(logoSrc)) {
     await sharp(logoSrc)
-      .resize({ width: 150, height: 150, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .resize({ width: 90, height: 90, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
       .webp({ quality: 80, effort: 6 })
       .toFile(logoDest);
     const oldSize = fs.statSync(logoSrc).size;
