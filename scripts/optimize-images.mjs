@@ -6,41 +6,41 @@ const imagensDir = path.resolve('public/imagens');
 const googleDir = path.join(imagensDir, 'google');
 
 async function processImages() {
-  console.log('--- Otimizando Imagens com Sharp ---');
+  console.log('--- Otimização Ultra-Precisa de Imagens para PageSpeed 100 ---');
 
   // 1. ft_principal.png -> ft_principal.webp (Hero LCP)
   const heroSrc = path.join(imagensDir, 'ft_principal.png');
   const heroDest = path.join(imagensDir, 'ft_principal.webp');
   if (fs.existsSync(heroSrc)) {
     await sharp(heroSrc)
-      .resize({ width: 1400, withoutEnlargement: true })
-      .webp({ quality: 80, effort: 6 })
+      .resize({ width: 1200, withoutEnlargement: true })
+      .webp({ quality: 75, effort: 6 })
       .toFile(heroDest);
     const oldSize = fs.statSync(heroSrc).size;
     const newSize = fs.statSync(heroDest).size;
     console.log(`ft_principal: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
   }
 
-  // 2. beto.png -> beto.webp
+  // 2. beto.png -> beto.webp (ajustado para visualização em telas móveis e desktop)
   const betoSrc = path.join(imagensDir, 'beto.png');
   const betoDest = path.join(imagensDir, 'beto.webp');
   if (fs.existsSync(betoSrc)) {
     await sharp(betoSrc)
-      .resize({ width: 800, withoutEnlargement: true })
-      .webp({ quality: 82, effort: 6 })
+      .resize({ width: 600, withoutEnlargement: true })
+      .webp({ quality: 75, effort: 6 })
       .toFile(betoDest);
     const oldSize = fs.statSync(betoSrc).size;
     const newSize = fs.statSync(betoDest).size;
     console.log(`beto: ${(oldSize / 1024).toFixed(1)} KB -> ${(newSize / 1024).toFixed(1)} KB (${Math.round((1 - newSize / oldSize) * 100)}% redução)`);
   }
 
-  // 3. logo.png -> logo.webp
+  // 3. logo.png -> logo.webp (dimensão perfeita para navbar 150px)
   const logoSrc = path.join(imagensDir, 'logo.png');
   const logoDest = path.join(imagensDir, 'logo.webp');
   if (fs.existsSync(logoSrc)) {
     await sharp(logoSrc)
-      .resize({ width: 300, withoutEnlargement: true })
-      .webp({ quality: 90, effort: 6 })
+      .resize({ width: 150, height: 150, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .webp({ quality: 80, effort: 6 })
       .toFile(logoDest);
     const oldSize = fs.statSync(logoSrc).size;
     const newSize = fs.statSync(logoDest).size;
@@ -49,14 +49,14 @@ async function processImages() {
 
   // 4. Galeria e ícones de serviços
   const standardImages = [
-    { name: 'portaClinica.jpg', maxW: 1000, quality: 80 },
-    { name: 'sala1.jpg', maxW: 1000, quality: 80 },
-    { name: 'sala2.jpg', maxW: 1000, quality: 80 },
-    { name: 'sala3.jpg', maxW: 1000, quality: 80 },
-    { name: 'ajuste.png', maxW: 128, quality: 85 },
-    { name: 'alivio.png', maxW: 128, quality: 85 },
-    { name: 'correcao.png', maxW: 128, quality: 85 },
-    { name: 'logo1.png', maxW: 300, quality: 90 }
+    { name: 'portaClinica.jpg', maxW: 800, quality: 75 },
+    { name: 'sala1.jpg', maxW: 800, quality: 75 },
+    { name: 'sala2.jpg', maxW: 800, quality: 75 },
+    { name: 'sala3.jpg', maxW: 800, quality: 75 },
+    { name: 'ajuste.png', maxW: 80, quality: 75 },
+    { name: 'alivio.png', maxW: 80, quality: 75 },
+    { name: 'correcao.png', maxW: 80, quality: 75 },
+    { name: 'logo1.png', maxW: 150, quality: 80 }
   ];
 
   for (const item of standardImages) {
@@ -82,8 +82,8 @@ async function processImages() {
         const src = path.join(googleDir, file);
         const dest = path.join(googleDir, file.replace(/\.(png|jpg|jpeg)$/i, '.webp'));
         await sharp(src)
-          .resize({ width: 80, height: 80, fit: 'cover' })
-          .webp({ quality: 80, effort: 6 })
+          .resize({ width: 64, height: 64, fit: 'cover' })
+          .webp({ quality: 75, effort: 6 })
           .toFile(dest);
         const oldSize = fs.statSync(src).size;
         const newSize = fs.statSync(dest).size;
@@ -92,7 +92,7 @@ async function processImages() {
     }
   }
 
-  console.log('--- Otimização de Imagens Concluída com Sucesso! ---');
+  console.log('--- Otimização Ultra-Precisa Concluída! ---');
 }
 
 processImages().catch(console.error);

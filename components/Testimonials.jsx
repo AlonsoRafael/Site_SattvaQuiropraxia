@@ -261,7 +261,7 @@ export default function Testimonials() {
                         )}
                       </div>
                       <div className="google-user-info">
-                        <h4>{review.name}</h4>
+                        <h3 className="google-user-name">{review.name}</h3>
                       </div>
 
                       {/* Ícone do Google (G) */}
