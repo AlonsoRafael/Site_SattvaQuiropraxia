@@ -7,21 +7,34 @@ export function trackEvent(eventName, params = {}) {
 }
 
 /**
- * Registra cliques no WhatsApp como conversão (Lead) no GA4
- * @param {'header' | 'floating_button' | 'contact_section' | 'phone_link'} location
+ * Registra cliques no WhatsApp com nomes claros em português para fácil visualização
+ * @param {'topo' | 'flutuante' | 'contato' | 'telefone'} location
  */
-export function trackWhatsAppClick(location = 'unknown') {
-  // Evento padrão recomendado pelo Google para geração de leads/contatos
-  trackEvent('generate_lead', {
-    event_category: 'Conversão',
-    event_label: `WhatsApp - ${location}`,
-    button_location: location,
-    value: 1
+export function trackWhatsAppClick(location = 'geral') {
+  // Mapa de nomes super claros que aparecem direto na lista principal do Analytics
+  const eventNameMap = {
+    header: 'clique_whatsapp_topo',
+    topo: 'clique_whatsapp_topo',
+    floating_button: 'clique_whatsapp_flutuante',
+    flutuante: 'clique_whatsapp_flutuante',
+    contact_section: 'clique_whatsapp_contato',
+    contato: 'clique_whatsapp_contato',
+    contact_phone_link: 'clique_whatsapp_telefone',
+    telefone: 'clique_whatsapp_telefone'
+  };
+
+  const clearEventName = eventNameMap[location] || `clique_whatsapp_${location}`;
+
+  // 1. Evento com nome claro e direto em português (aparece na lista principal)
+  trackEvent(clearEventName, {
+    origem: location,
+    canal: 'WhatsApp'
   });
 
-  // Evento personalizado específico para filtragem no painel
-  trackEvent('whatsapp_click', {
-    button_location: location
+  // 2. Evento padrão do Google para métricas de conversão / leads
+  trackEvent('generate_lead', {
+    origem: location,
+    metodo: 'WhatsApp'
   });
 }
 
@@ -30,8 +43,7 @@ export function trackWhatsAppClick(location = 'unknown') {
  * @param {string} network
  */
 export function trackSocialClick(network = 'instagram') {
-  trackEvent('social_click', {
-    event_category: 'Redes Sociais',
-    network: network
+  trackEvent('clique_instagram', {
+    rede_social: network
   });
 }
