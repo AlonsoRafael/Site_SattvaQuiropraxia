@@ -1,5 +1,6 @@
 import React from 'react';
 import { InstagramIcon } from './Icons';
+import { trackSocialClick } from '../data/analytics';
 
 const Footer = React.forwardRef(function Footer(_, ref) {
   return (
@@ -13,6 +14,7 @@ const Footer = React.forwardRef(function Footer(_, ref) {
             rel="noopener noreferrer"
             className="instagram-icon"
             aria-label="Instagram"
+            onClick={() => trackSocialClick('instagram')}
           >
             <InstagramIcon size={20} />
           </a>

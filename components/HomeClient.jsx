@@ -12,6 +12,7 @@ import Footer from './Footer';
 import Testimonials from './Testimonials';
 import { services, faqs } from '../data/siteData';
 import { WhatsAppIcon } from './Icons';
+import { trackWhatsAppClick } from '../data/analytics';
 
 export default function HomeClient() {
   const [footerVisible, setFooterVisible] = useState(false);
@@ -63,6 +64,7 @@ export default function HomeClient() {
         target="_blank"
         rel="noreferrer"
         aria-label="Agende agora pelo WhatsApp"
+        onClick={() => trackWhatsAppClick('floating_button')}
         style={{ bottom: footerVisible ? `${footerOffset}px` : '20px' }}
       >
         <WhatsAppIcon size={28} aria-hidden={true} />

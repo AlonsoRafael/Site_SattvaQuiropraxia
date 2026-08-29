@@ -1,6 +1,7 @@
 import Gallery from './Gallery';
 import { gallery } from '../data/siteData';
 import { LocationDotIcon, WhatsAppIcon, PhoneIcon, EnvelopeIcon, InstagramIcon } from './Icons';
+import { trackWhatsAppClick, trackSocialClick } from '../data/analytics';
 
 export default function Contact() {
   return (
@@ -25,6 +26,7 @@ export default function Contact() {
                   href="https://wa.me/553496416009?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20sobre%20os%20atendimentos."
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('contact_section')}
                   style={{ color: '#25D366', textDecoration: 'none', fontWeight: 600 }}
                 >
                   Envie uma mensagem no WhatsApp
@@ -38,6 +40,7 @@ export default function Contact() {
                   href="https://wa.me/553496416009?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20e%20saber%20mais%20sobre%20os%20atendimentos."
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick('contact_phone_link')}
                   style={{ color: 'inherit', textDecoration: 'none' }}
                 >
                   (34) 99641 6009
@@ -53,7 +56,13 @@ export default function Contact() {
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '15px' }}>
               <InstagramIcon style={{ marginTop: '5px', minWidth: '16px', flexShrink: 0 }} />
               <div>
-                <a href="https://www.instagram.com/quiro.betogoulart/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                <a
+                  href="https://www.instagram.com/quiro.betogoulart/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackSocialClick('instagram')}
+                  style={{ color: 'inherit', textDecoration: 'none' }}
+                >
                   @quiro.betogoulart
                 </a>
               </div>

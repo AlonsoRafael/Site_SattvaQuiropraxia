@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { WhatsAppIcon } from './Icons';
+import { trackWhatsAppClick } from '../data/analytics';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,6 +77,7 @@ export default function Header() {
           rel="noopener noreferrer"
           className="btn btn-primary nav-btn"
           aria-label="Agendar Consulta pelo WhatsApp"
+          onClick={() => trackWhatsAppClick('header')}
         >
           <WhatsAppIcon size={18} style={{ marginRight: '6px' }} /> Agendar Consulta
         </a>
