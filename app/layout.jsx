@@ -1,6 +1,9 @@
+import Script from 'next/script';
 import { Lato, Montserrat } from 'next/font/google';
 import { faqs } from '../data/siteData';
 import './globals.css';
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -224,7 +227,27 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataFaq) }}
         />
       </head>
-      <body className={`${montserrat.variable} ${lato.variable}`}>{children}</body>
+      <body className={`${montserrat.variable} ${lato.variable}`}>
+        {children}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
+      </body>
     </html>
   );
 }
