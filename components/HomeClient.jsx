@@ -11,8 +11,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Testimonials from './Testimonials';
 import { services, faqs } from '../data/siteData';
-import { WhatsAppIcon } from './Icons';
-import { trackWhatsAppClick } from '../data/analytics';
+import FloatingWhatsApp from './FloatingWhatsApp';
 
 export default function HomeClient() {
   const [footerVisible, setFooterVisible] = useState(false);
@@ -58,18 +57,7 @@ export default function HomeClient() {
 
   return (
     <>
-      <a
-        href="https://wa.me/553496416009"
-        className="whatsapp-flutuante"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Agende agora pelo WhatsApp"
-        onClick={() => trackWhatsAppClick('floating_button')}
-        style={{ bottom: footerVisible ? `${footerOffset}px` : '20px' }}
-      >
-        <WhatsAppIcon size={28} aria-hidden={true} />
-        <span className="whatsapp-flutuante-texto">Agende Agora</span>
-      </a>
+      <FloatingWhatsApp footerVisible={footerVisible} footerOffset={footerOffset} />
 
       <Header />
       <main>
